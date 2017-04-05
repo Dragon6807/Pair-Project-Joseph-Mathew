@@ -6,5 +6,6 @@ public class map {
 	
 	public void create(){
 		arrayMap.add(new Tile(1, 0, 0));
+		
 	}
 }
