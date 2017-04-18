@@ -36,7 +36,7 @@ import java.util.ArrayList;
 
 public class MainWindow extends JPanel implements 
 		MouseListener{
-	private static MainWindow play;
+	private static JPanel play;
 	private static int resCount = 0;
 	Random rand = new Random();
 	static JFrame frame;
@@ -52,7 +52,7 @@ public class MainWindow extends JPanel implements
 		frame.dispose();
 		frame = new JFrame("Fun Game!");
 	    frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-	    play.setPreferredSize(new Dimension(1580, 790));
+	    play.setPreferredSize(new Dimension(640, 480));
 	    frame.getContentPane().add(play, BorderLayout.CENTER);
 	    JPanel buttonsPanel = new JPanel();
 	    JButton clearButton = new JButton("Reset");
@@ -63,24 +63,28 @@ public class MainWindow extends JPanel implements
 	        		if (resCount == 11) {
 	        			resCount = -1;
 	        		}
-	        		play.reset();
+	        		//play.reset();
 	        	}
 	    	});
 	    frame.pack();
 	    frame.setVisible(true);
+	    
 	}
 
 	
 	
 	public void paintComponent(Graphics g){
-	    super.paintComponent(g);
-	    for (int cout = 0; cout<64;cout++) {
-			mappy.arrayMap.get(cout);
-		}
+	    /*super.paintComponent(g);
+	    Tile update;
+	    for (int cout = 0; cout<10000;cout++) {
+			update = mappy.arrayMap.get(cout);
+			update.paint(g);
+		}*/
 	}
 	
 	public static void main(String[] args) {
-		play = new MainWindow();
+		play = new JPanel();
+		play.setBackground(Color.black);
 		mappy = new map();
 		mappy.create();
 		frame = new JFrame("Fun Game!");
@@ -94,7 +98,7 @@ public class MainWindow extends JPanel implements
 	    		BorderLayout.SOUTH);
 	    clearButton.addActionListener(new ActionListener() {
 	        	public void actionPerformed(ActionEvent e) {
-	        		play.reset();
+	        		//play.reset();
 	        	}
 	    	});
 	    frame.pack();

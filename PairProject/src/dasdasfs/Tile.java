@@ -20,6 +20,6 @@ public class Tile {
 	public void paint(Graphics g) {
 		Graphics2D g1d = (Graphics2D) g;
 		g1d.setColor(color);
-		g1d.fillRect(coordinateX, coordinateY, coordinateX+50, coordinateY+50);
+		g1d.fillRect(coordinateX, coordinateY, coordinateX+3, coordinateY+3);
 	}
 }

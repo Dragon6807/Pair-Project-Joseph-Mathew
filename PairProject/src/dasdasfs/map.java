@@ -20,17 +20,19 @@ public class map {
 		colorSc.add(Color.pink);
 		colorSc.add(Color.red);
 		colorSc.add(Color.yellow);
+		colorSc.add(Color.decode("#DEB887"));
 	}
 	
 	public void create(){
 		int cout = 0;
-		for (int y = 0; y<8;y++) {
-			for (int x = 0; x<8;x++) {
-				if (cout==12) {
-					cout=0;
+		for (int y = 0; y<100;y++) {
+			for (int x = 0; x<100;x++) {
+				if (x%10==0 || y%10==0) {
+					arrayMap.add(new Tile(colorSc.get(0), x*3, y*3));
 				}
-				arrayMap.add(new Tile(colorSc.get(cout), y*50, x*50));
-				cout++;
+				else {
+					arrayMap.add(new Tile(colorSc.get(12), x*3, y*3));
+				}
 			}
 		}
 	}
