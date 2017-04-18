@@ -3,8 +3,9 @@ import java.awt.Color;
 import java.util.*;
 
 public class map {
-	public ArrayList<Tile> arrayMap = new ArrayList();
-	public ArrayList<Color> colorSc = new ArrayList();
+	public ArrayList<ArrayList<Tile>> arrayMapY = new ArrayList<ArrayList<Tile>>();
+	public ArrayList<Tile> arrayMapX = new ArrayList<Tile>();
+	public ArrayList<Color> colorSc = new ArrayList<Color>();
 	
 	public map() {
 		colorSc.clear();
@@ -24,16 +25,17 @@ public class map {
 	}
 	
 	public void create(){
-		int cout = 0;
 		for (int y = 0; y<100;y++) {
 			for (int x = 0; x<100;x++) {
 				if (x%10==0 || y%10==0) {
-					arrayMap.add(new Tile(colorSc.get(0), x*3, y*3));
+					arrayMapX.add(new Tile(colorSc.get(0), x*9, y*9));
 				}
 				else {
-					arrayMap.add(new Tile(colorSc.get(12), x*3, y*3));
+					arrayMapX.add(new Tile(colorSc.get(12), x*9, y*9));
 				}
 			}
+			//arrayMapY.add((ArrayList<Tile>) arrayMapX.clone());
+			//arrayMapX.clear();
 		}
 	}
 }
